@@ -4,6 +4,7 @@ import importlib.util
 
 # Ensure outputs directory exists
 os.makedirs("outputs", exist_ok=True)
+open("outputs/__init__.py", "a").close()
 
 st.title("🧠 Ab Initio MP → Python Agent")
 
