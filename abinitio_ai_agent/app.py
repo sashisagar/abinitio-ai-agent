@@ -26,6 +26,9 @@ if uploaded_file:
     test_code = generate_test(graph_ir)
     st.code(test_code, language="python")
 
+    import os
+    os.makedirs("output", exist_ok=True)
+
     # Save files for testing
     with open("outputs/generated_code.py", "w") as f:
         f.write(python_code)
