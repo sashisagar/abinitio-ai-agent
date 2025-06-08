@@ -5,6 +5,7 @@ from testgen import generate_test
 from agent import agent_review
 import os
 import subprocess
+import pytest
 
 if not os.path.exists("outputs"):
     os.makedirs("outputs")
