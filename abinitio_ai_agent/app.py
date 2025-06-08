@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import sys
 import importlib.util
 
 # Ensure outputs directory exists
@@ -36,6 +37,7 @@ def run_tests():
     assert some_function(2) == 4
     assert some_function(3) != 10
 '''
+    sys.path.insert(0, os.path.abspath('.'))
 
     test_path = "outputs/test_generated_code.py"
     with open(test_path, "w") as f:
