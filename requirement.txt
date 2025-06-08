@@ -1,4 +1,4 @@
 # trigger rebuild
 streamlit
 pandas
-pytest
+pytest==8.2.2
