@@ -4,6 +4,7 @@ from codegen import generate_python_code
 from testgen import generate_test
 from agent import agent_review
 import os
+import subprocess
 
 if not os.path.exists("outputs"):
     os.makedirs("outputs")
@@ -36,7 +37,8 @@ if uploaded_file:
         f.write(test_code)
 
     st.subheader("⚙️ Running Test...")
-    test_result = os.popen("pytest outputs/test_generated.py --tb=short").read()
+    test_result = subprocess.run(["pytest","outputs/test_generated.py"], capture_outpout=True, text=True)
+    # test_result = os.popen("pytest outputs/test_generated.py --tb=short").read()
     st.text(test_result)
 
     if "FAILED" in test_result:
