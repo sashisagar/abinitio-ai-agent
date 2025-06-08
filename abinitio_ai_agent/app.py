@@ -5,6 +5,9 @@ from testgen import generate_test
 from agent import agent_review
 import os
 
+if not os.path.exists("outputs"):
+    os.makedirs("outputs")
+
 st.title("Ab Initio .mp to Python Agent")
 
 uploaded_file = st.file_uploader("Upload Ab Initio .mp file", type=["mp"])
@@ -25,9 +28,6 @@ if uploaded_file:
     st.subheader("✅ Generated Test Code")
     test_code = generate_test(graph_ir)
     st.code(test_code, language="python")
-
-    import os
-    os.makedirs("output", exist_ok=True)
 
     # Save files for testing
     with open("outputs/generated_code.py", "w") as f:
