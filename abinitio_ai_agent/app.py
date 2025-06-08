@@ -37,7 +37,7 @@ if uploaded_file:
         f.write(test_code)
 
     st.subheader("⚙️ Running Test...")
-    test_result = subprocess.run(["pytest","outputs/test_generated.py"], capture_outpout=True, text=True)
+    test_result = subprocess.run(["pytest","outputs/test_generated.py"], capture_output=True, text=True)
     # test_result = os.popen("pytest outputs/test_generated.py --tb=short").read()
     st.text(test_result)
 
